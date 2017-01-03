@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^.*\.sw.$
+^.*inst/scratch_work.*$
+^.*inst/queries.*$

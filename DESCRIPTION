@@ -1,0 +1,13 @@
+Package: notificationGraphs
+Title: Create graphs of Gloo email notification click-through rates
+Version: 0.0.0.9000
+Authors@R: person("John", "Hower", email = "jhower@tangogroup.com", role = c("aut", "cre"))
+Description: Create graphs of Gloo email notification click-through rates.
+Depends:
+    R (>= 3.3.2)
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
+Imports: DBI,
+    RPostgreSQL
