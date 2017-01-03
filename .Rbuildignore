@@ -3,3 +3,4 @@
 ^.*\.sw.$
 ^.*inst/scratch_work.*$
 ^.*inst/queries.*$
+^Session\.vim$
