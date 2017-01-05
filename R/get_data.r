@@ -6,6 +6,14 @@
 #' @format A length-one character vector
 "notification_click_query"
 
+#' Tidied results
+#' 
+#' Contains the most recent tidied results of
+#' tidy_notification_click_data.
+#'
+#' @format A data.frame
+"tidy_results"
+
 #' Function that runs the notification_settings_query and returns the results
 #' as a data.frame.
 #'
