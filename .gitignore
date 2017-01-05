@@ -3,3 +3,4 @@
 .RData
 inst/scratch_work/*
 **\.sw*
+Session.vim
