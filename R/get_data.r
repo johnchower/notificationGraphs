@@ -42,10 +42,11 @@ tidy_notification_click_data <- function(clickData){
 #' @param event_types A character vector listing the event types to include in
 #' the final chart.
 #' @param date_range A length-two Date vector containing the min and max date
-#' to include in the final chart.
+#' to include in the filtered dataset.
 #' @param variable A length-one character vector specifying the variable whose
 #' value will be displayed in the final chart. Can be set to "click",
 #' "unsubscribe", or "manage".
+#' @importFrom dplyr mutate
 filter_tidy_data <- function(tidyData
                              , event_types
                              , date_range
@@ -88,6 +89,8 @@ postprocess <- function(filteredData
 #'
 #' @param processedData The result of calling postprocess.
 #' @import ggplot2
+#' @importFrom scales percent
+#' @importFrom ggthemes theme_tufte
 generate_final_plot <- function(processedData){
   aggregate <- ncol(processedData) == 3
   Map <- if(aggregate){
@@ -99,7 +102,50 @@ generate_final_plot <- function(processedData){
               , colour = "event_type")
   }
 
-  ggplot(processedData
+  out <- ggplot(processedData
          , mapping = Map) +
-  geom_line()
+    geom_line() +
+    scale_y_continuous(labels = scales::percent) +
+    ggthemes::theme_tufte(base_size = 16) 
+
+  if(aggregate){
+    return(out)
+  } else {
+    return(
+      out + guides(colour=guide_legend(title = "Event Type"))
+    )
+  }
+}
+
+#' Convert tidy data to plot.
+#'
+#' @param tidyData The result of calling tidy_notification_click_data.
+#' @param input A list containing elements named "chart_type", "event_types",
+#' "date_range", and "variable". These correspond to the input list generated
+#' by the ui.r Shiny script.
+convert_tidy_to_plot <- function(tidyData
+                                 , input){
+    generate_final_plot(
+      postprocess(
+        aggregate = input$chart_type==1
+        , filter_tidy_data(
+            tidyData
+            , event_types = unlist(input$event_types)
+            , date_range = input$date_range
+            , input$variable
+          )
+      )
+    )
+}
+
+#' Extract the legend from a ggplot.
+#'
+#' @param gplot A ggplot object.
+#' @importFrom ggplot2 ggplot_gtable
+#' @importFrom ggplot2 ggplot_build
+extract_legend <- function(gplot){
+  tmp <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(gplot)) 
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box") 
+  legend <- tmp$grobs[[leg]] 
+  return(legend)
 }
