@@ -123,6 +123,7 @@ generate_final_plot <- function(processedData){
 #' @param input A list containing elements named "chart_type", "event_types",
 #' "date_range", and "variable". These correspond to the input list generated
 #' by the ui.r Shiny script.
+#' @export
 convert_tidy_to_plot <- function(tidyData
                                  , input){
     generate_final_plot(
@@ -143,6 +144,7 @@ convert_tidy_to_plot <- function(tidyData
 #' @param gplot A ggplot object.
 #' @importFrom ggplot2 ggplot_gtable
 #' @importFrom ggplot2 ggplot_build
+#' @export
 extract_legend <- function(gplot){
   tmp <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(gplot)) 
   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box") 
