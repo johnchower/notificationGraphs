@@ -13,7 +13,7 @@ filter_tidy_data(tidyData, event_types, date_range, variable)
 the final chart.}
 
 \item{date_range}{A length-two Date vector containing the min and max date
-to include in the final chart.}
+to include in the filtered dataset.}
 
 \item{variable}{A length-one character vector specifying the variable whose
 value will be displayed in the final chart. Can be set to "click",

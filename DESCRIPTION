@@ -16,4 +16,5 @@ Imports: DBI,
     ggplot2,
     scales,
     ggthemes,
-    plotly
+    plotly,
+    shiny
