@@ -1,6 +1,5 @@
 with clickDateids as(
 /* Get the user and clicked date ids for each notification */
-
 select nef.notification_id as notification_id
 	, nef.notification_delivery_channel_id as delivery_channel_id
 	, nef.user_id as user_id
