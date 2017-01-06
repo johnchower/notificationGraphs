@@ -1,6 +1,8 @@
-query_loc <- '~/Projects/notificationGraphs/inst/queries/notificationQueries.sql'
+proj_root <- rprojroot::find_root(rprojroot::has_file('NAMESPACE'))
+path_to_query <- 'inst/queries/notificationQueries.sql'
+full_path_to_query <- paste(proj_root, path_to_query, sep = '/')
 
-notification_click_query <- readLines(con = query_loc)
+notification_click_query <- readLines(con = full_path_to_query)
 notification_click_query <- paste(notification_click_query, collapse=" ")
 
 devtools::use_data(notification_click_query, overwrite = T)

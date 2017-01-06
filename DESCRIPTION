@@ -18,4 +18,5 @@ Imports: DBI,
     ggthemes,
     plotly,
     shiny,
-    rsconnect
+    rsconnect,
+    rprojroot
