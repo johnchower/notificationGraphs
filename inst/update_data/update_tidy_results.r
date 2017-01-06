@@ -1,3 +1,4 @@
+devtools::load_all()
 glootility::connect_to_redshift()
 
   notification_clicks <- 
