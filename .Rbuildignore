@@ -5,3 +5,5 @@
 ^Session\.vim$
 ^.*inst/queries/.*$
 ^inst/update_data$
+^^\.*inst/update_data$
+^update_data$
