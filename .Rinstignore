@@ -1,0 +1,2 @@
+queries/.*$
+^update_data/.*$
