@@ -2,6 +2,6 @@
 ^\.Rproj\.user$
 ^.*\.sw.$
 ^.*inst/scratch_work.*$
-^.*inst/queries.*$
 ^Session\.vim$
+^.*inst/queries/.*$
 ^inst/update_data$
