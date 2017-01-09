@@ -4,4 +4,4 @@
 ^.*inst/scratch_work.*$
 ^.*inst/queries.*$
 ^Session\.vim$
-^.*inst/update_data.*$
+^inst/update_data$
