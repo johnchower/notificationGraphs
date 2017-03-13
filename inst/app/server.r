@@ -3,7 +3,7 @@ library(plotly)
 function(input, output){
   tidyData <- notificationGraphs::tidy_results   
   mindate <- min(tidyData$sent_week_start_date)
-  maxdate <- max(tidyData$sent_week_start_date) - 7
+  maxdate <- max(tidyData$sent_week_start_date) # - 7
 
   output$plot <- renderPlotly({
     notificationGraphs::convert_tidy_to_plot(tidyData
